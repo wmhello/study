@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+header {
+  border-top: 5px solid #f46660;
+  height: 55px; }
+
+nav, .container {
+  width: 1170px;
+  margin: 0 auto; }
+
+#content {
+  background: #f0f2f5;
+  padding-top: 35px;
+  padding-bottom: 35px; }
+
+#content section {
+  width: 800px;
+  float: left;
+  border: 1px solid #00f;
+  background: #fcfcfc; }
+
+#content aside {
+  width: 290px;
+  float: right;
+  border: 1px solid #00f; }
+
+footer {
+  padding-top: 10px; }
+
+#tips, #count-info, #friendlink, #other-info {
+  float: left;
+  margin-right: 5px; }
+
+#tips {
+  width: 500px; }
+
+#count-info, #friendlink, #other-info {
+  width: 200px; }
