@@ -2,6 +2,8 @@ var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var sass = require('gulp-sass');
 var reload = browserSync.reload;
+var cleanCss = require('gulp-clean-css');
+var concat = require('gulp-concat');//合并文件 --合并只是放一起--压缩才会真正合并相同样式
 
 var src = {
     scss: 'app/scss/*.scss',
@@ -24,6 +26,8 @@ gulp.task('sass', function() {
     return gulp
         .src(src.scss)
         .pipe(sass().on('error', sass.logError))
+        .pipe(concat('main.css')) //合并css
+        .pipe(cleanCss())
         .pipe(gulp.dest(src.css))
         .pipe(reload({ stream: true }));
 });

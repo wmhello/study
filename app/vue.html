@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>计算器(vue版本)</title>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding:0
+    }
+    .container{
+
+      width: 1200px;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+    .item{
+      border: 1px solid #000;
+      padding: 10px;
+      width: 250px;
+      height: 150px;
+      margin-bottom: 2px;
+      float: left;
+      margin-right: 5px;
+    }
+    .item.active{
+      border: 1px solid #f00;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="app">
+    <input type="text"  id="num1" v-model="n1">
+    <select id="opt" v-model="op">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">X</option>
+      <option value="/">/</option>
+    </select>
+    <input type="text"  id="num2" v-model="n2">
+    <button @click="cal" id="cal" >{{tips}}</button>
+    <input type="text" value="" id="sum" disabled="disabled" v-model="total">
+    <div>
+      <h1 v-text="h2"></h1>
+      <h2 v-html="h2"></h2>
+      <p>{{note}}</p>
+    </div>
+    <ul>
+      <li v-for="(info,index) in items">{{info.name}}---->{{info.address}}--->{{index}}</li>
+    </ul>
+    <div class="container">
+    <template v-for="(item,index) in items">
+      <div class="item"  @click="selectDiv(index)" v-bind:class="{active:activeDiv===index}">
+       <p><span>{{item.name}}</span>,<span>{{item.address}}</span></p>
+       <p>{{item.phone}}</p>
+      </div>
+    </template>
+</div>
+
+
+  </div>
+  <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+  <script>
+     var app = new Vue({
+        el: '#app',
+      data: {
+        n1: null, // 第一个数字
+        n2: 0,
+        op: '+',  // 操作符
+        tips: '=',
+        msg: '测试',
+        note: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        h2: '<span style="color: red">工作</span>',
+        isShow: false,
+        activeDiv: 0, // 当前选择的div
+        total: 0,
+        items:[
+          {
+          id: 1,
+          name: '张学友',
+          address: '中国 香港',
+          phone: 137087712345
+         },
+          {
+          id: 2,
+          name: '黎明',
+          address: '中国 香港',
+          phone: 134087712345
+         },
+          {
+          id:3,
+          name: '刘德华',
+          address: '中国 香港',
+          phone: 136087712345
+         },
+          {
+          id:4,
+          name: '郭富城',
+          address: '中国 香港',
+          phone: 131087712345
+         }
+        ]
+      },
+      methods: {
+        cal: function() {
+          switch (this.op) {
+            case "+":
+               this.total = parseInt(this.n1) + parseInt(this.n2);
+              break;
+            case "-":
+                this.total = this.n1 - this.n2;
+              break;
+            case "*":
+                 this.total = this.n1 * this.n2;
+              break;
+            case "/":
+                 this.total = this.n1 * this.n2;
+              break;
+            default:
+          }
+        },
+        selectDiv: function(index) {
+           // var objDiv = document.querySelector('.container').getElementsByTagName('div');
+           //  for(var i=0; i<objDiv.length; i++) {
+           //    objDiv[i].className='item'
+           //  }
+           // objDiv[index].className='item active'
+           this.activeDiv = index;
+           //console.log(index)
+        }
+      },
+      created: function() {
+        this.n1 = 200;
+        this.n2 = 100;
+        //document.getElementById('cal').innerHTML = "cal"
+      },
+      mounted: function() {
+        // DOM操作
+
+      },
+     });
+  </script>
+</body>
+</html>

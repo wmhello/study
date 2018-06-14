@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>微博</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #app{
+      width: 600px;
+      margin: 0 auto;
+      margin-top: 50px;
+      height: 160px;
+      border-radius: 3px;
+      border: 1px solid #888;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    #app .content{
+      height: 80px;
+      width: 580px;
+      margin: 0px;
+      box-sizing: border-box;
+    }
+    #app .tips{
+      height: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="app">
+       <div class="tips">
+           
+       </div>
+       <input type="text" class="content">
+        
+  </div>
+  
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      msg: ''
+    },
+    methods: {
+
+    }
+  })
+</script>
+</body>
+</html>
