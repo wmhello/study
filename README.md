@@ -1,2 +1,2 @@
-# blog
-博客静态页面
+# study
+跟着例子学习vue.js
